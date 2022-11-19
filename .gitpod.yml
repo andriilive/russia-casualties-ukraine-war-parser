@@ -1,0 +1,9 @@
+image:
+  file: Dockerfile
+
+# Commands to start on workspace startup
+tasks:
+  - name: Setup & Build
+    before: yarn global add express
+    init: yarn install
+    command: yarn build
