@@ -1,9 +1,7 @@
 # configurations
 .idea
 
-# crawl and apify storage folders
-apify_storage
-crawlee_storage
+# crawlee and apify storage folders
 storage
 
 # installed files

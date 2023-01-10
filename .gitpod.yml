@@ -4,6 +4,6 @@ image:
 # Commands to start on workspace startup
 tasks:
   - name: Setup & Build
-    before: pnpm add express -g
+    before: npm add express -g
     init: pnpm install
     command: run build
