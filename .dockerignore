@@ -1,8 +1,0 @@
-# configurations
-.idea
-
-# crawlee and apify storage folders
-storage
-
-# installed files
-node_modules

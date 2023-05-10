@@ -7,4 +7,10 @@ apify_storage
 crawlee_storage
 storage
 .vscode
-dist
+build
+
+download/*
+!download/.gitkeep
+.env
+.husky
+!.husky/pre-commit
