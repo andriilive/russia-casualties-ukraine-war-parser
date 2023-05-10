@@ -1,0 +1,4 @@
+.husky
+generated
+node_modules
+supabase

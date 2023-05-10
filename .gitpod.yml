@@ -1,9 +1,0 @@
-image:
-  file: Dockerfile
-
-# Commands to start on workspace startup
-tasks:
-  - name: Setup & Build
-    before: npm add express -g
-    init: pnpm install
-    command: run build

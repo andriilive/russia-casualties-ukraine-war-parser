@@ -1,0 +1,17 @@
+name: Parse casualties
+on:
+  schedule:
+    - cron: 0 23 * * * # Every day at 11:00 UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '8.13.0'
+      - run: npm install
+      - run: echo "" >> .env.example && echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> .env.example && cp .env.example .env
+      - run: npm run start
