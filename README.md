@@ -52,6 +52,10 @@ npm install && npm start
 
 To use pnpm or yarn fork the repo, edit [Dockerfile](./Dockerfile) and drop [package-lock.json](./package-lock.json)
 
+## Crawlee
+
+Old [Crawlee branch](https://github.com/andriilive/russia-casualties-ukraine-war-parser/tree/old/crawlee)
+
 ## Included Helpers && more
 
 - Casualties type [i18in language files](./i18n) in json format ()
