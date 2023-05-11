@@ -13,6 +13,7 @@ let supabase: SupabaseClient;
 	supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 	const { day, casualties } = parsedData;
+	console.log(parsedData);
 
 	if (day === warDayNumber) {
 		let casualtiesJson = JSON.stringify(casualties);
