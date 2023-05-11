@@ -1,72 +1,35 @@
-# Experimental Russian army casualties parser built with [Crawlee](https://crawlee.dev) and [Puppeteer](https://pptr.dev)
+# Russian army casualties (JSON)
 
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 [![GitPod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/andriilive/russia-casualties-ukraine-war-parser)
 [![Start parser](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml/badge.svg)](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml)
 
-This parser was built to do routine morning check of Russian army losses, provided by [General Staff of the Armed Forces of Ukraine](https://www.facebook.com/GeneralStaff.ua/)
+A cozy json-api endpoint for true open-source lovers. Represents daily russian army losses in structured json.  
+Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 
-The result of successful script execution is a json of Russian army losses sorted by its types.
-
-The **response example**:
-
-```json5
-{
-	day: 320,
-	casualties: {
-		militaryPersonnel: 1117601,
-		jet: 2851,
-		copter: 2751,
-		tank: 30801,
-		armoredCombatVehicle: 61471,
-		artillerySystem: 20691,
-		airDefenceSystem: 2171,
-		mlrs: 4341,
-		supplyVehicle: 48091,
-		ship: 161,
-		uav: 18561,
-	},
+```bash
+# Request 
+curl -fsSL ...
+```
+```bash
+# Response
+day: 320,
+casualties: {
+    militaryPersonnel: 1117601,
+    jet: 2851,
+    copter: 2751,
+    tank: 30801,
+    armoredCombatVehicle: 61471,
+    artillerySystem: 20691,
+    airDefenceSystem: 2171,
+    mlrs: 4341,
+    supplyVehicle: 48091,
+    ship: 161,
+    uav: 18561,
 }
 ```
 
-**Supported Casualties types**
-
-- Military personnel
-- Jets
-- Copters
-- Tank
-- Armored Combat Vehicles
-- Artillery Systems
-- Air Defence Systems
-- MLRS
-- Supply Vehicles
-- Ship
-- Tactical unmanned aircraft
-
-## Install & Run
-
-Runs on Node >=16.0.0
-
-```bash
-npm install && npm start
-```
-
-To use pnpm or yarn fork the repo, edit [Dockerfile](./Dockerfile) and drop [package-lock.json](./package-lock.json)
-
-## Crawlee
-
-Old [Crawlee branch](https://github.com/andriilive/russia-casualties-ukraine-war-parser/tree/old/crawlee)
-
-## Included Helpers && more
-
-- Casualties type [i18in language files](./i18n) in json format ()
-- Design assets: [Figma](https://www.figma.com/file/Go0JPDk5yXrM2HcRBFdd7p/Russian-army-casualties-parser?t=cIsRCLMkC4pdExbO-1)
-- [Dockerfile](/Dockerfile) for easy deployment
-- [Gitpod Support](/.gitpod.yml) for easy cloud dev & run
-
-## Parsing source:
-
-Parser uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) news webpage as a target source. Please, read the [Rules for writing materials in the sites of the internet holding "Ukrainian pravda"](https://www.pravda.com.ua/rules/) first
+Uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) as data source. Built with Puppetter.js, Github and Supabase
 
 <details>
 <summary>Parsing block example</summary>
@@ -312,5 +275,6 @@ Parser uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) news webpage as a
 
 ### Cheatsheet
 
+- Old [Crawlee branch](https://github.com/andriilive/russia-casualties-ukraine-war-parser/tree/old/crawlee)
 - [Law of ukraine on copyright and related rights (ENG) - Article 10](https://zakon.rada.gov.ua/laws/show/en/3792-12/conv#n165)
 - War in UA: public data & infographics [repo](https://github.com/lymenbae/War-in-Ukraine)
