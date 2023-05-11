@@ -8,11 +8,12 @@ A cozy json-api endpoint for true open-source lovers. Returns russian army losse
 Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 
 ```bash
-# Request 
 curl -fsSL ...
 ```
+
+## Response structure:
+
 ```bash
-# Response
 day: 320,
 casualties: {
     militaryPersonnel: 1117601,
