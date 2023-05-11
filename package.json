@@ -13,6 +13,7 @@
 		"node": ">=18.13.0"
 	},
 	"scripts": {
+		"postinstall": "supabase init & supabase start & husky install",
 		"preCommit": "eslint . --fix && prettier --write .",
 		"start": "ts-node app.ts"
 	},
