@@ -4,7 +4,7 @@
 [![GitPod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/andriilive/russia-casualties-ukraine-war-parser)
 [![Start parser](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml/badge.svg)](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml)
 
-A cozy json-api endpoint for true open-source lovers. Represents daily russian army losses in structured json.  
+A cozy json-api endpoint for true open-source lovers. Returns russian army losses in structured json.  
 Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 
 ```bash
