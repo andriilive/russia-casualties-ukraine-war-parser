@@ -2,6 +2,7 @@
 
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 [![GitPod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/andriilive/russia-casualties-ukraine-war-parser)
+[![Start parser](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml/badge.svg)](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml)
 
 This parser was built to do routine morning check of Russian army losses, provided by [General Staff of the Armed Forces of Ukraine](https://www.facebook.com/GeneralStaff.ua/)
 
