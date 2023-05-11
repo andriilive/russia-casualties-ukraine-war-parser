@@ -2,6 +2,7 @@ name: Start parser
 on:
   schedule:
     - cron: 0 11 * * * # Every day at 11:00 UTC
+  workflow_dispatch:
 
 jobs:
   start:
