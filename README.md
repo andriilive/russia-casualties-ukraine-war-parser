@@ -1,17 +1,23 @@
-# Russian army casualties (JSON)
+# Russia army casualties in Russian-Ukrainian War (Parser)
 
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 [![GitPod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/andriilive/russia-casualties-ukraine-war-parser)
 [![Start parser](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml/badge.svg)](https://github.com/andriilive/russia-casualties-ukraine-war-parser/actions/workflows/start.yaml)
 
-A cozy json-api endpoint for true open-source lovers. Returns russian army losses in structured json.  
+A cozy opensource Russia army casualties parser for open-source lovers. Parses, stores and publishes structured russian army losses.
 Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
+
+## API
+
+The entire api is publicly available at [ru-casualties.vercel.app](https://ru-casualties.vercel.app)
+
+**Get today's casualties**
 
 ```bash
 curl -fsSL ...
 ```
 
-## Response structure:
+### Response structure example:
 
 ```bash
 day: 320,
@@ -29,6 +35,15 @@ casualties: {
     uav: 18561,
 }
 ```
+
+The api's & frontend repo: [andriilive/ru-casualties](https://github.com/andriilive/ru-casualties) 
+
+## Parser built with:
+
+- NodeJS
+- Pupetter.js
+- Supabase
+- Github Actions
 
 Uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) as data source. Built with Puppetter.js, Github and Supabase
 
