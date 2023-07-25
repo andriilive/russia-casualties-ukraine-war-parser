@@ -7,43 +7,36 @@
 A cozy opensource Russia army casualties parser for open-source lovers. Parses, stores and publishes structured russian army losses.
 Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 
-## API
+## API Request
 
-The entire api is publicly available at [ru-casualties.vercel.app](https://ru-casualties.vercel.app)
+Read the detailed api docs at **Russia Goodbye Open Source Project** 👉🏻 [russiagoodbye.vercel.app/casualties](https://russiagoodbye.vercel.app/casualties)
 
-**Get today's casualties**
+### Today's casualties
 
 ```bash
 curl -fsSL ...
 ```
 
-### Response structure example:
+**Response structure example:**
 
 ```bash
-day: 320,
+"day": 516,
 casualties: {
-    militaryPersonnel: 1117601,
-    jet: 2851,
-    copter: 2751,
-    tank: 30801,
-    armoredCombatVehicle: 61471,
-    artillerySystem: 20691,
-    airDefenceSystem: 2171,
-    mlrs: 4341,
-    supplyVehicle: 48091,
-    ship: 161,
-    uav: 18561,
+  "militaryPersonnel": 242620,
+  "jet": 315,
+  "copter": 310,
+  "tank": 4162,
+  "armoredCombatVehicle": 8118,
+  "artillerySystem": 4675,
+  "airDefenceSystem": 452,
+  "mlrs": 697,
+  "supplyVehicle": 7182,
+  "ship": 18,
+  "uav": 3963
 }
 ```
 
-The api's & frontend repo: [andriilive/ru-casualties](https://github.com/andriilive/ru-casualties) 
-
-## Parser built with:
-
-- NodeJS
-- Pupetter.js
-- Supabase
-- Github Actions
+Parser built with: NodeJS, Pupetter.js, Supabase, Github Actions
 
 Uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) as data source. Built with Puppetter.js, Github and Supabase
 
@@ -289,8 +282,8 @@ Uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) as data source. Built wi
 </p>
 </details>
 
-### Cheatsheet
+### Usefull Links 🔗
 
 - Old [Crawlee branch](https://github.com/andriilive/russia-casualties-ukraine-war-parser/tree/old/crawlee)
 - [Law of ukraine on copyright and related rights (ENG) - Article 10](https://zakon.rada.gov.ua/laws/show/en/3792-12/conv#n165)
-- War in UA: public data & infographics [repo](https://github.com/lymenbae/War-in-Ukraine)
+- [War in UA: public data & infographics repo](https://github.com/lymenbae/War-in-Ukraine)
