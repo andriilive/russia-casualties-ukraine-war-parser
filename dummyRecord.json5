@@ -1,0 +1,16 @@
+{
+	day: 2,
+	casualties: {
+		militaryPersonnel: 243220,
+		jet: 315,
+		copter: 310,
+		tank: 4174,
+		armoredCombatVehicle: 8131,
+		artillerySystem: 4705,
+		airDefenceSystem: 454,
+		mlrs: 698,
+		supplyVehicle: 7194,
+		ship: 18,
+		uav: 3977,
+	},
+}

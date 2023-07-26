@@ -8,6 +8,6 @@
 		"target": "ES2015",
 		"lib": ["ESNext", "DOM"]
 	},
-	"include": ["app.ts", "src/**/*.ts", "generated/database.types.ts"],
+	"include": ["app.ts", "src/**/*.ts", "src/supabase.ts"],
 	"exclude": ["node_modules", "build"]
 }

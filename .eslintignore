@@ -1,5 +1,4 @@
 .husky
-generated
 node_modules
 resources
 supabase
