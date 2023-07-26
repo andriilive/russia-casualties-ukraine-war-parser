@@ -16,6 +16,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Cook the .env
-        run: cp .env.example .env && echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> ./.env
+        run: |
+          cp .env.example .env
+          echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> ./.env
+          echo "SUPABASE_ACCESS_TOKEN=${{ secrets.SUPABASE_ACCESS_TOKEN }}" >> ./.env
+          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> ./.env
       - name: Start parser
         run: npm run start
