@@ -17,7 +17,7 @@ const ParseCasualties = (async (): Promise<DataStructure> => {
 		day: await page.$eval('.war_title', ($el) => Number($el.textContent.slice(-3))),
 		casualties: mapCasualties(
 			await page.$$eval('.war_num', ($els) =>
-				$els.map(($el) => Number($el.textContent.replace('~', '').split('+')[0] + 1)),
+				$els.map(($el) => Number($el.textContent.replace('~', '').split('+')[0])),
 			),
 		),
 	};
