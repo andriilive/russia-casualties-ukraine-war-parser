@@ -14,11 +14,9 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
       - name: Install dependencies
-        run: npm install
+        run: npm install &&  npm run start
       - name: Build
-        run: |
-          npm run start & curl -o .snapshot.html https://www.pravda.com.ua/eng/
-          node scrap.js && kill $!
+        run:  curl -silent -o .snapshot.html https://www.pravda.com.ua/eng/ && node scrap.js
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Actions'
