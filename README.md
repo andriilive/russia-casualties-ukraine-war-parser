@@ -7,6 +7,13 @@
 A cozy opensource Russia army casualties parser for open-source lovers. Parses, stores and publishes structured russian army losses.
 Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 
+## Running
+
+```bas
+npm run build && 
+```
+
+
 ## API Request
 
 Read the detailed api docs at **Russia Goodbye Open Source Project** 👉🏻 [russiagoodbye.vercel.app/casualties](https://russiagoodbye.vercel.app/casualties)
