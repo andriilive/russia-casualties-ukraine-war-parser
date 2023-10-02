@@ -17,7 +17,8 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          npm run start & curl -o .snapshot.html https://www.pravda.com.ua/eng/ && kill $!
+          npm run start & curl -o .snapshot.html https://www.pravda.com.ua/eng/
+          node scrap.js && kill $!
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Actions'
