@@ -15,7 +15,13 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
-      - name: Cook the .env
-        run: cp .env.example .env && echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> ./.env
-      - name: Start parser
-        run: npm run start
+      - name: Build
+        run: |
+          npm run dev
+          curl -o .snapshot.html https://www.pravda.com.ua/eng/
+          npm run scrap
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Database update $(date)"
+          git push
+          

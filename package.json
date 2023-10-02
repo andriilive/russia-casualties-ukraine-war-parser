@@ -1,38 +1,29 @@
 {
-	"name": "russia-casualties-ukraine-war-parser",
-	"version": "0.0.1",
-	"description": "This parser was built to do a morning check of Russian army losses, provided by General Staff of the Armed Forces of Ukraine and published at Ukrainska Pravda webpage",
-	"license": "MIT",
-	"type": "commonjs",
-	"author": {
-		"name": "Andrii Ivashchuk (@digitalandyeu)",
-		"url": "https://digitalandy.eu/contact",
-		"email": "hi@digitalandy.eu"
-	},
-	"engines": {
-		"node": ">=18.13.0"
-	},
-	"scripts": {
-		"postinstall": "supabase init & supabase start & husky install",
-		"preCommit": "eslint . --fix && prettier --write .",
-		"update-types": "source .env && npx supabase gen types typescript --project-id \"$PROJECT_ID\"",
-		"start": "ts-node app.ts"
-	},
-	"devDependencies": {
-		"@supabase/supabase-js": "^2.21.0",
-		"@types/node": "^20.1.1",
-		"dotenv": "^16.0.3",
-		"eslint": "^8.40.0",
-		"husky": "^8.0.3",
-		"lodash": "^4.17.21",
-		"lowdb": "^6.0.1",
-		"prettier": "^2.8.8",
-		"puppeteer": "^20.1.2",
-		"supabase": "^1.57.5",
-		"ts-node": "^10.9.1",
-		"typescript": "^5.0.4"
-	},
-	"dependencies": {
-		"json5": "^2.2.3"
-	}
+  "name": "russia-casualties-ukraine-war-parser",
+  "version": "0.0.1",
+  "description": "This parser was built to do a morning check of Russian army losses, provided by General Staff of the Armed Forces of Ukraine and published at Ukrainska Pravda webpage",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "index.js",
+  "author": {
+    "name": "Andrii Ivashchuk (@digitalandyeu)",
+    "url": "https://digitalandy.eu/contact",
+    "email": "hi@digitalandy.eu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andriilive/russia-casualties-ukraine-war-parser"
+  },
+  "engines": {
+    "node": ">=18.13.0"
+  },
+  "scripts": {
+    "start": "json-server --watch db.json --routes routes.json",
+    "generate": "node scrap.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "json-server": "^0.17.4"
+  }
 }
