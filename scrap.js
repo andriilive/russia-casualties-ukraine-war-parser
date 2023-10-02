@@ -9,11 +9,8 @@ const casualties = $('.war_num').get().map((el) => {
 });
 
 let parsedDay = $('.war_title').text().match(/\d+/)[0];
-if (parsedDay === utils.warDayNumber && parsedDay > utils.apiData.latest.id) {
-    console.log('day seems to be correct')
-}
 
-const result = {
+let parsedResult = {
     id: utils.warDayNumber,
     militaryPersonnel: casualties[0],
     jet: casualties[1],
@@ -29,16 +26,24 @@ const result = {
     created_at: new Date(),
 }
 
-fetch(`http://localhost:3000/days`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(result)
-}).then(
-    response => response.json(
-)).then(
-    data => console.log(data)
-).catch(
-    error => console.log(error)
-);
+console.log(parsedResult)
+
+const result = fetch(`http://localhost:3000/days?_sort=id&_order=desc&_limit=1`, {
+    method: 'GET'
+}).then(response => response.json()).then(data => {
+    if (data[0].id < parsedDay) {
+        fetch(`http://localhost:3000/days`, {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            }, body: JSON.stringify(parsedResult)
+        }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
+    } else {
+        console.log('OOPS! Entre exists or number is wrong. skipping...')
+        fetch(`http://localhost:3000/errors`, {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            }, body: JSON.stringify(parsedResult)
+        }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
+    }
+}).catch(error => console.log(error));
+
