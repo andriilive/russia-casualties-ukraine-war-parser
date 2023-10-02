@@ -1,4 +1,0 @@
-{
-  "/today": "/days?_sort=id&_order=desc&_limit=1",
-  "/latest": "/days?_sort=id&_order=desc&_limit=1"
-}
