@@ -17,9 +17,8 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          npm run dev
+          npm run start
           curl -o .snapshot.html https://www.pravda.com.ua/eng/
-          npm run scrap
           git config --global user.name "GitHub Actions"
           git add .
           git commit -m "Database update $(date)"
