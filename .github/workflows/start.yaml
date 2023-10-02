@@ -17,10 +17,13 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          npm run start
-          curl -o .snapshot.html https://www.pravda.com.ua/eng/
-          git config --global user.name "GitHub Actions"
-          git add .
-          git commit -m "Database update $(date)"
+          npm run start & curl -o .snapshot.html https://www.pravda.com.ua/eng/ && kill $!
+      - name: Commit changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'andrii.live@github.com'
+          git add db.json
+          git commit -m "Update db.json"
           git push
+          
           
