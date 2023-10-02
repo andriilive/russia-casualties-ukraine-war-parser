@@ -13,10 +13,8 @@ Updated daily at `8:30 UTC (10:30 Europe/KIEV)`
 npm run build && 
 ```
 
-
 ## API Request
 
-Read the detailed api docs at **Russia Goodbye Open Source Project** 👉🏻 [russiagoodbye.vercel.app/casualties](https://russiagoodbye.vercel.app/casualties)
 
 ### Today's casualties
 

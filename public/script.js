@@ -54,7 +54,7 @@ function CustomRoutesBlock({customRoutes}) {
             .map(
                 (rule) =>
                     `<tr>
-              <td>${rule}</td>
+              <td><a href="${rule.replace('/*', '')}" />${rule}</a></td>
               <td><code>⇢</code> ${customRoutes[rule]}</td>
             </tr>`,
             )
