@@ -1,7 +1,7 @@
 {
   "i18n": [
     {
-      "languageCode": "ua",
+      "id": "ua",
       "languageName": "Українська",
       "casualtiesTypes": {
         "militaryPersonnel": "Особистий військовий склад",
@@ -18,7 +18,7 @@
       }
     },
     {
-      "languageCode": "ru",
+      "id": "ru",
       "languageName": "Русский",
       "casualtiesTypes": {
         "militaryPersonnel": "Личный состав ВС",
@@ -35,7 +35,7 @@
       }
     },
     {
-      "languageCode": "cs",
+      "id": "cs",
       "languageName": "Čeština",
       "casualtiesTypes": {
         "militaryPersonnel": "Vojenský personál",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "languageCode": "en",
+      "id": "en",
       "languageName": "English",
       "casualtiesTypes": {
         "militaryPersonnel": "Military Personnel",
@@ -2127,18 +2127,33 @@
     },
     {
       "id": 586,
-      "militaryPersonnel": "278570",
-      "jet": "316",
-      "copter": "316",
-      "tank": "4702",
-      "armoredCombatVehicle": "8991",
-      "artillerySystem": "6477",
-      "airDefenceSystem": "537",
-      "mlrs": "798",
-      "supplyVehicle": "8883",
-      "ship": "20",
-      "uav": "5043",
+      "militaryPersonnel": 278570,
+      "jet": 316,
+      "copter": 316,
+      "tank": 4702,
+      "armoredCombatVehicle": 8991,
+      "artillerySystem": 6477,
+      "airDefenceSystem": 537,
+      "mlrs": 798,
+      "supplyVehicle": 8883,
+      "ship": 20,
+      "uav": 5043,
       "created_at": "2023-10-02T05:26:53.938Z"
+    },
+    {
+      "id": 601,
+      "militaryPersonnel": 289430,
+      "jet": 318,
+      "copter": 317,
+      "tank": 4979,
+      "armoredCombatVehicle": 9405,
+      "artillerySystem": 6936,
+      "airDefenceSystem": 547,
+      "mlrs": 814,
+      "supplyVehicle": 9293,
+      "ship": 20,
+      "uav": 5291,
+      "createdAt": "2023-10-17T16:09:48.985Z"
     }
   ]
 }

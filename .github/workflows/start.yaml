@@ -8,14 +8,31 @@ jobs:
   start:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch snapshot
+        run: curl -silent -o .snapshot.html https://www.pravda.com.ua/eng && cat .snapshot.html
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
+          node-version: 'lts/*'
           cache: 'npm'
-      - name: Install dependencies
-        run: npm install &&  npm run start
-      - name: Build
-        run:  curl -silent -o .snapshot.html https://www.pravda.com.ua/eng/ && node scrap.js
+
+      - name: Install dependencies and start 'serve' script
+        run: |
+          npm install
+
+      - name: Start server
+        run: npm run start &
+
+      - name: Wait for port 3000 to be ready
+        run: |
+          while ! nc -z localhost 3000; do sleep 1; done
+          node scrap.js
+
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Actions'
@@ -23,5 +40,3 @@ jobs:
           git add db.json
           git commit -m "Update db.json"
           git push
-          
-          
