@@ -1,7 +1,7 @@
 function ResourceItem({name, length}) {
     return `
     <li>
-      <a href="${name}">/${name}</a>
+      <a href="/api/${name}">/api/${name}</a>
       <sup>${length ? `${length}x` : 'object'}</sup>
     </li>
   `

@@ -21,13 +21,18 @@ const getDaysIds = async () => {
 }
 
 const putToday = async function (dataRaw) {
-    const data = {
-        id: warDayNumber, ...dataRaw, createdAt: new Date().toISOString(),
-    };
-    await router.db.get('days').push( data ).write()
-    return data
+    const result = await router.db.get('days').push( dataRaw ).write()
+    console.log('result', result)
+    return result
 }
 
+const publicUrl = process.env.VERCEL_URL ?? `http://localhost:${process.env.PORT ?? 3000}`
+const staticApiUri = (url) => `${process.env.VERCEL_URL ?? 'http://localhost:3000'}/json-api/${url}.json`;
+const publicApiUri = (url) => `${process.env.VERCEL_URL ?? 'http://localhost:3000'}/api/${url}`;
+
+const db = router.db;
+
+
 module.exports = {
-    warStartDate, warDayNumber, getDaysIds, getLastDay, getTheDay,putToday
+    warStartDate, warDayNumber, getDaysIds, getLastDay, getTheDay,putToday, publicUrl, db, staticApiUri,publicApiUri
 }

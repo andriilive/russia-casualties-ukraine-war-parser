@@ -1,0 +1,29 @@
+const {getDaysIds, getLastDay} = require("../utils");
+let {publicUrl} = require("../utils");
+
+const {Router} = require("express");
+const router = Router();
+publicUrl = publicUrl + '/api';
+
+router.get('/array', async (req, res) => {
+    const daysIds = await getDaysIds()
+    res.jsonp(daysIds)
+})
+
+router.get('/last', async (req, res) => {
+    const lastDay = await getLastDay()
+    res.jsonp(lastDay)
+})
+
+router.get('/index', async (req, res) => {
+    const daysIds = await getDaysIds()
+    const days = daysIds.map(id => {
+        return {
+            id,
+            url: `${publicUrl}/days/${id}`
+        }
+    })
+    res.jsonp(days)
+})
+
+module.exports = router;

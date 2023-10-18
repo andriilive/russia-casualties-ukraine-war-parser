@@ -2153,7 +2153,22 @@
       "supplyVehicle": 9293,
       "ship": 20,
       "uav": 5291,
-      "createdAt": "2023-10-17T16:09:48.985Z"
+      "created_at": "2023-10-17T16:09:48.985Z"
+    },
+    {
+      "id": 602,
+      "militaryPersonnel": 290050,
+      "jet": 319,
+      "copter": 323,
+      "tank": 4981,
+      "armoredCombatVehicle": 9420,
+      "artillerySystem": 6944,
+      "airDefenceSystem": 547,
+      "mlrs": 814,
+      "supplyVehicle": 9303,
+      "ship": 20,
+      "uav": 5301,
+      "created_at": "2023-10-18T10:50:07.122Z"
     }
   ]
 }

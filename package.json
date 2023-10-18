@@ -15,14 +15,17 @@
     "url": "https://github.com/andriilive/russia-casualties-ukraine-war-parser"
   },
   "scripts": {
+    "postinstall": "npm run fetch",
     "fetch": "curl -silent -o .snapshot.html https://www.pravda.com.ua/eng/ && cat .snapshot.html",
     "scrap": "node scrap.js",
+    "export:jsonapi": "node jsonapi.js",
     "start": "node api/server.js",
-    "dev": "nodemon api/server.js"
+    "dev": "nodemon --watch . api/server.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "lowdb": "^6.1.0"
   }
 }
