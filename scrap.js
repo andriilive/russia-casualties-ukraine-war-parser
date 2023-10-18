@@ -1,17 +1,17 @@
 const fs = require('fs');
 const html = fs.readFileSync('.snapshot.html', 'utf8')
 const cheerio = require('cheerio')
+const {getDaysIds, router, db, warDayNumber, getTheDay, putToday} = require("./utils");
 const $ = cheerio.load(html);
-const utils = require('./utils');
 
 const casualties = $('.war_num').get().map((el) => {
-    return $(el).clone().children().remove().end().text().replace('~', '');
+    return Number( $(el).clone().children().remove().end().text().replace('~', '') );
 });
 
 let parsedDay = $('.war_title').text().match(/\d+/)[0];
 
 let parsedResult = {
-    id: utils.warDayNumber,
+    id: Number(parsedDay),
     militaryPersonnel: casualties[0],
     jet: casualties[1],
     copter: casualties[2],
@@ -23,27 +23,16 @@ let parsedResult = {
     supplyVehicle: casualties[8],
     ship: casualties[9],
     uav: casualties[10],
-    created_at: new Date(),
+    created_at: new Date().toISOString()
 }
 
-console.log(parsedResult)
+console.log('scrap.js result: ', parsedResult);
 
-const result = fetch(`http://localhost:3000/days?_sort=id&_order=desc&_limit=1`, {
-    method: 'GET'
-}).then(response => response.json()).then(data => {
-    if (data[0].id < parsedDay) {
-        fetch(`http://localhost:3000/days`, {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json',
-            }, body: JSON.stringify(parsedResult)
-        }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
-    } else {
-        console.log('OOPS! Entre exists or number is wrong. skipping...')
-        fetch(`http://localhost:3000/errors`, {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json',
-            }, body: JSON.stringify(parsedResult)
-        }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
-    }
-}).catch(error => console.log(error));
+if ( db.get('days').find({id: parsedResult.id}).value() ) {
+    console.log('scrap.js: day already exists');
+} else {
+    console.log('scrap.js: day does not exist');
+    db.get('days').push(parsedResult).write()
+}
 
+module.exports = parsedResult;
