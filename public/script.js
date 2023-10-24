@@ -10,13 +10,14 @@ function ResourceItem({name, length}) {
 function ResourceList({db}) {
     return `
     <ul>
+        <li>
+      <a href="/api/">/api/</a>
+      <sup>object</sup>
+        </li>
       ${Object.keys(db)
-        .map((name) =>
-            ResourceItem({
-                name,
-                length: Array.isArray(db[name]) && db[name].length,
-            }),
-        )
+        .map((name) => ResourceItem({
+            name, length: Array.isArray(db[name]) && db[name].length,
+        }),)
         .join('')}
     </ul>
   `
@@ -29,7 +30,7 @@ function NoResources() {
 function ResourcesBlock({db}) {
     return `
     <div>
-      <h1>API routes</h1>
+      <h2>API routes</h2>
       ${Object.keys(db).length ? ResourceList({db}) : NoResources()}
     </div>
   `
@@ -38,26 +39,20 @@ function ResourcesBlock({db}) {
 window
     .fetch('db')
     .then((response) => response.json())
-    .then(
-        (db) =>
-            (document.getElementById('resources').innerHTML = ResourcesBlock({db})),
-    )
+    .then((db) => (document.getElementById('resources').innerHTML = ResourcesBlock({db})),)
 
 function CustomRoutesBlock({customRoutes}) {
     const rules = Object.keys(customRoutes)
     if (rules.length) {
         return `
       <div>
-        <h1>Custom Routes</h1>
+        <h2>Custom Routes</h2>
         <table>
           ${rules
-            .map(
-                (rule) =>
-                    `<tr>
+            .map((rule) => `<tr>
               <td><a href="${rule.replace('/*', '')}" />${rule}</a></td>
               <td><code>⇢</code> ${customRoutes[rule]}</td>
-            </tr>`,
-            )
+            </tr>`,)
             .join('')}
         </table>
       </div>
@@ -68,9 +63,6 @@ function CustomRoutesBlock({customRoutes}) {
 window
     .fetch('__rules')
     .then((response) => response.json())
-    .then(
-        (customRoutes) =>
-            (document.getElementById('custom-routes').innerHTML = CustomRoutesBlock({
-                customRoutes,
-            })),
-    )
+    .then((customRoutes) => (document.getElementById('custom-routes').innerHTML = CustomRoutesBlock({
+        customRoutes,
+    })),)

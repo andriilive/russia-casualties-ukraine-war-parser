@@ -1,25 +1,29 @@
-let {getLastDay, publicUrl, putToday, warDayNumber} = require("../utils")
+let {homepage, db, casualtiesKeys, publicApiUri} = require("../utils")
 
-publicUrl = publicUrl + '/api';
+publicUrl = homepage + '/api';
 
 const {Router} = require("express");
 const router = Router();
 
+let dayLast = db.get('days').last().value()
+let dayBeforeLast = db.get('days').find({id: dayLast.id - 1}).value()
+
+let resp = {
+    day: dayLast.id,
+}
+
+casualtiesKeys.forEach((key) => {
+    resp[key] = [dayLast[key] - dayBeforeLast[key], dayLast[key]]
+})
+
+resp._meta = {
+    last_updated: new Date(dayLast['created_at']).toISOString().split('T')[0],
+    days: [dayLast.id, dayBeforeLast.id],
+    last: publicUrl + '/last'
+}
+
 router.get("/", (req, res, next) => {
-    res.jsonp({
-        'day': warDayNumber, 'today': `${publicUrl}/today`, 'days': {
-            'all': `${publicUrl}/days`,
-            'array': `${publicUrl}/days/array`,
-            'last': `${publicUrl}/days/last`,
-            'index': `${publicUrl}/days/index`,
-        }, 'i18n': {
-            'all': `${publicUrl}/i18n`,
-            'ua': `${publicUrl}/i18n/ua`,
-            'ru': `${publicUrl}/i18n/ru`,
-            'en': `${publicUrl}/i18n/en`,
-            'cs': `${publicUrl}/i18n/cs`,
-        }
-    })
+    res.jsonp(resp)
 });
 
 module.exports = router;

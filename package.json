@@ -4,6 +4,7 @@
   "description": "This parser was built to do a morning check of Russian army losses, provided by General Staff of the Armed Forces of Ukraine and published at Ukrainska Pravda webpage",
   "license": "MIT",
   "type": "commonjs",
+  "homepage": "https://russia-casualties-ukraine-war-parser.vercel.app",
   "main": "api/server.js",
   "author": {
     "name": "Andrii Ivashchuk (@digitalandyeu)",
