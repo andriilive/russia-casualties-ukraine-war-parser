@@ -132,3 +132,4 @@ Simplest ever parser. Uses [Ukrainska Pravda](https://www.pravda.com.ua/eng/) as
 - [Law of ukraine on copyright and related rights (ENG) - Article 10](https://zakon.rada.gov.ua/laws/show/en/3792-12/conv#n165)
 - [War in UA: public data & infographics repo](https://github.com/lymenbae/War-in-Ukraine)
 - [#russiagoodbyeproject](https://github.com/topics/russiagoodbyeproject)
+- Inspiration Dev Resources: https://github.com/IgorVaryvoda/Help-Ukraine#for-developers
