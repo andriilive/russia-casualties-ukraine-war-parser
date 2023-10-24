@@ -1,7 +1,7 @@
 name: Start parser
 on:
   schedule:
-    - cron: 30 8 * * * # Every day at 8:30 UTC (10:30 KIEV)
+    - cron: 30 5 * * * # Every day at 5:30 UTC (8:30 Europe/KIEV)
   workflow_dispatch:
 
 jobs:
@@ -22,21 +22,20 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies and start 'serve' script
-        run: |
-          npm install
+        run: npm install
 
-      - name: Start server
+      - name: Start json-server
         run: npm run start &
 
-      - name: Wait for port 3000 to be ready
+      - name: Run parser when json-server is ready
         run: |
           while ! nc -z localhost 3000; do sleep 1; done
           npm run scrap
 
       - name: Commit changes
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'andrii.live@github.com'
+          git config --global user.name '@digitalandyeu-bot'
+          git config --global user.email '148791487+digitalandyeu-bot@users.noreply.github.com'
           git add db.json
-          git commit -m "Update db.json"
+          git commit -m "Added $(date '+%Y-%m-%d') db.json"
           git push
