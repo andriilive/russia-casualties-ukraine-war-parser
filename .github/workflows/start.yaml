@@ -1,7 +1,7 @@
 name: Start parser
 on:
   schedule:
-    - cron: 30 8 * * * # Every day at 8:30 UTC (10:30 KIEV)
+    - cron: 30 5 * * * # Every day at 5:30 UTC (8:30 Europe/KIEV)
   workflow_dispatch:
 
 jobs:
