@@ -12,6 +12,10 @@ let resp = {
     day: dayLast.id,
 }
 
+if (dayBeforeLast === undefined) {
+    console.error('dayBeforeLast is undefined')
+}
+
 casualtiesKeys.forEach((key) => {
     resp[key] = [dayLast[key] - dayBeforeLast[key], dayLast[key]]
 })
