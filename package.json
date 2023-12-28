@@ -19,12 +19,16 @@
     "fetch": "curl -silent -o .snapshot.html https://www.pravda.com.ua/eng/ && cat .snapshot.html",
     "scrap": "node scrap.js",
     "start": "node api/server.js",
-    "dev": "nodemon --watch . api/server.js"
+    "dev": "nodemon --watch . api/server.js",
+    "missing-db-data": "nodemon --watch missing-db-data.js missing-db-data.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
     "json-server": "^0.17.4",
     "lowdb": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
