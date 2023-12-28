@@ -21,16 +21,11 @@ jobs:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: Install dependencies and start 'serve' script
+      - name: Install dependencies
         run: npm install
 
-      - name: Start json-server
-        run: npm run start &
-
-      - name: Run parser when json-server is ready
-        run: |
-          while ! nc -z localhost 3000; do sleep 1; done
-          npm run scrap
+      - name: Run parser
+        run: npm run scrap
 
       - name: Commit changes
         run: |
