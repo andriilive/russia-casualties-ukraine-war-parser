@@ -33,7 +33,8 @@ jobs:
         run: npm run scrap
 
       - name: Integrity fix
-        if: steps.parse_news.outcome == 'failure'
+        id: db_fix
+        # if: steps.parse_news.outcome == 'failure'
         run: npm run db-fix
 
       - name: Commit changes
