@@ -6,6 +6,9 @@
   "type": "commonjs",
   "homepage": "https://russia-casualties-ukraine-war-parser.vercel.app",
   "main": "api/server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "author": {
     "name": "Andrii Ivashchuk (@digitalandyeu)",
     "url": "https://github.com/andriilive",
@@ -16,15 +19,15 @@
     "url": "https://github.com/andriilive/russia-casualties-ukraine-war-parser"
   },
   "scripts": {
-    "fetch": "curl -silent -o .snapshot.html https://www.pravda.com.ua/eng/ && cat .snapshot.html",
+    "fetch": "curl -silent -o .snapshot.html https://www.pravda.com.ua && cat .snapshot.html",
     "scrap": "node scrap.js",
     "start": "node api/server.js",
     "dev": "nodemon --watch . api/server.js",
-    "missing-db-data": "nodemon --watch missing-db-data.js missing-db-data.js"
+    "db-fix": "node db-fix.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "express": "^4.18.2",
+    "express": "^5.1.0",
     "json-server": "^0.17.4",
     "lowdb": "^6.1.0"
   },

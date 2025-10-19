@@ -1,7 +1,10 @@
 name: Start parser
 on:
+  # Every day at 8:30 UTC (10:30 KIEV)
   schedule:
-    - cron: 30 8 * * * # Every day at 8:30 UTC (10:30 KIEV)
+    - cron: 30 8 * * *
+
+  # Allow manual trigger
   workflow_dispatch:
 
 jobs:
@@ -18,14 +21,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: '20.x'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run parser
+      - name: ParseNews
+        id: parse_news
+        continue-on-error: true
         run: npm run scrap
+
+      - name: Integrity fix
+        if: steps.parse_news.outcome == 'failure'
+        run: npm run db-fix
 
       - name: Commit changes
         run: |
