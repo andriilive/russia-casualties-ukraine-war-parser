@@ -71,14 +71,14 @@ async function fetchDay(dayId) {
           const dayData = await fetchDay(dayId);
           if (dayData) {
             db.get('days').push(dayData).write();
-            console.log('Day #' + dayI + ' added successfully.');
+            console.log('Day #' + dayId + ' added successfully.');
           }
           else {
-            console.error('Failed to fetch data for day #' + dayI + '.');
+            console.error('Failed to fetch data for day #' + dayId + '.');
           }
         }
         catch (error) {
-          console.error('Error processing day #' + dayI + ': ', error);
+          console.error('Error processing day #' + dayId + ': ', error);
         }
 
       }
