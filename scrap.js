@@ -4,11 +4,11 @@ const cheerio = require('cheerio')
 const {getDaysIds, router, db, warDayNumber, getTheDay, putToday, casualtiesKeys} = require("./utils");
 const $ = cheerio.load(html);
 
-const casualties = $('.war_num').get().map((el) => {
+const casualties = $('.section_war_informer_number').get().map((el) => {
     return Number( $(el).clone().children().remove().end().text().replace('~', '') );
 });
 
-let parsedDay = $('.war_title').text().match(/\d+/)[0];
+let parsedDay = $('.section_war_informer_title').text().match(/\d+/)[0];
 
 let parsedResult = {
     id: Number(parsedDay)
