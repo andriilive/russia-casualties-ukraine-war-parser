@@ -25494,6 +25494,21 @@
       "ship": 35,
       "uav": 566986,
       "created_at": "2026-10-17T12:19:47.206Z"
+    },
+    {
+      "id": 1698,
+      "militaryPersonnel": 1565060,
+      "jet": 449,
+      "copter": 356,
+      "tank": 12416,
+      "armoredCombatVehicle": 25561,
+      "artillerySystem": 51293,
+      "airDefenceSystem": 1711,
+      "mlrs": 2224,
+      "supplyVehicle": 164246,
+      "ship": 35,
+      "uav": 568358,
+      "created_at": "2026-10-18T12:45:02.627Z"
     }
   ]
 }
