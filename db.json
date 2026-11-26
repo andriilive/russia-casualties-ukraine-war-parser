@@ -26064,6 +26064,36 @@
       "ship": 36,
       "uav": 619416,
       "created_at": "2026-11-24T19:39:09.392Z"
+    },
+    {
+      "id": 1737,
+      "militaryPersonnel": 1645899,
+      "jet": 456,
+      "copter": 356,
+      "tank": 12512,
+      "armoredCombatVehicle": 25992,
+      "artillerySystem": 52825,
+      "airDefenceSystem": 1771,
+      "mlrs": 2304,
+      "supplyVehicle": 180094,
+      "ship": 36,
+      "uav": 621002,
+      "created_at": "2026-11-26T18:34:22.170Z"
+    },
+    {
+      "id": 1736,
+      "militaryPersonnel": 1643580,
+      "jet": 452,
+      "copter": 356,
+      "tank": 12507,
+      "armoredCombatVehicle": 25974,
+      "artillerySystem": 52801,
+      "airDefenceSystem": 1769,
+      "mlrs": 2301,
+      "supplyVehicle": 179599,
+      "ship": 36,
+      "uav": 620013,
+      "created_at": "2026-11-25T00:00:00.000Z"
     }
   ]
 }
